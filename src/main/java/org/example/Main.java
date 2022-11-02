@@ -8,7 +8,6 @@ public class Main {
         proxySourcesClientService.execute();
         RandomChoice randomChoice = new RandomChoice();
         randomChoice.proxy(new Random(),proxySourcesClientService);
-        System.out.println(randomChoice);
 
 
     }
