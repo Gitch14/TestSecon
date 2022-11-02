@@ -1,3 +1,5 @@
+package org.example;
+
 public class Proxy {
     private String hostname;
     private Integer port;

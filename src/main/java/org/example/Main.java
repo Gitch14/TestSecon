@@ -1,5 +1,15 @@
-package org.example;public class Main {
+package org.example;
+
+import java.util.Random;
+
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ProxySourcesClientService proxySourcesClientService = new ProxySourcesClientService();
+        proxySourcesClientService.execute();
+        RandomChoice randomChoice = new RandomChoice();
+        randomChoice.proxy(new Random(),proxySourcesClientService);
+        System.out.println(randomChoice);
+
+
     }
 }

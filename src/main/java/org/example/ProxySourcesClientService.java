@@ -1,3 +1,6 @@
+package org.example;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
@@ -7,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ProxySourcesClientService implements ProxySourcesClient
+public class ProxySourcesClientService
 {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -16,25 +19,24 @@ public class ProxySourcesClientService implements ProxySourcesClient
     
     }
     
-    @Override
-    public Proxy getProxy() {
-        List<Proxy> proxyList = new ArrayList<>();
+
+    public List<Proxy> execute(){
+
+            List<Proxy> langList = null;
+
         try {
-            URL url = this.getClass().getClassLoader().getResource("D:\\VPNv1\\src\\main\\resources\\Proxy.json");
-            if (url != null) {
-                File file = new File(url.toURI());
-                proxyList.addAll(List.of(objectMapper.readValue(file, Proxy[].class)));
-                file = new File(url.toURI());
-            }
-        } catch (URISyntaxException | IOException e) {
-            e.printStackTrace();
+            langList = objectMapper.readValue(
+                    new File("D:\\untitled3\\src\\main\\resources\\Proxy.json"),
+                    new TypeReference<List<Proxy>>() {
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
+       // langList.forEach(x -> System.out.println(x.toString()));
 
-        Random random = new Random();
-        int randProxy = random.nextInt(proxyList.size());
+        return langList;
+        }
 
-        return new Proxy(proxyList.get(randProxy));
-    }
 }
 
