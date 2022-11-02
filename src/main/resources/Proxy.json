@@ -1,0 +1,26 @@
+[
+  {
+    "hostname": "host1",
+    "port": 8083,
+    "username": "user1",
+    "password": "pass1"
+  },
+  {
+    "hostname": "host2",
+    "port": 8084,
+    "username": "user2",
+    "password": "pass2"
+  },
+  {
+    "hostname": "host3",
+    "port": 8085,
+    "username": "user3",
+    "password": "pass3"
+  },
+  {
+    "hostname": "host3",
+    "port": 8086,
+    "username": "user4",
+    "password": "pass4"
+  }
+]
